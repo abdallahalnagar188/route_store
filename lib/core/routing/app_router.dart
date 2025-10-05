@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
-import '../../features/auth/presentation/screens/register.dart';
+import '../../features/auth/presentation/screens/register/register.dart';
 import '../../features/home/presentation/screens/home.dart';
 import 'routes.dart';
 

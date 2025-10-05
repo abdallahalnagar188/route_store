@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'core/constants/app_constants.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
+import 'core/utils/theme/theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,10 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: Routes.login,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        scaffoldBackgroundColor: Colors.white,
-      ),
+      themeMode: ThemeMode.system,
+      theme: MyAppTheme.lightTheme,
+      darkTheme: MyAppTheme.darkTheme,
     );
   }
 }

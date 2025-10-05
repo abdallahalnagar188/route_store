@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/entities/user_entity.dart';
-import '../../domain/usecase/login_usecase.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../../domain/usecase/login_usecase.dart';
+
 
 part 'login_state.dart';
 
