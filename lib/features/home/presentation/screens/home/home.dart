@@ -8,7 +8,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: RColors.primary,
       ),
     );
   }

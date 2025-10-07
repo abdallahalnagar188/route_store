@@ -2,32 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_store/core/constants/colors.dart';
 import 'package:route_store/core/constants/images.dart';
+import '../core/widgets/headers/common_header.dart';
 import '../features/categories/presentation/screens/home/categories.dart';
 import '../features/home/presentation/screens/home/home.dart';
 import '../features/profile/presentation/screens/home/profile.dart';
 import '../features/wishlist/presentation/screens/home/wishlist.dart';
+import '../core/widgets/headers/header_cubit.dart';
 import 'bottom_nav_cubit.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
-  final List<Widget> screens = const [
-    HomeScreen(),
-    CategoriesScreen(),
-    WishlistScreen(),
-    ProfileScreen(),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => BottomNavCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => BottomNavCubit()),
+        BlocProvider(create: (_) => HeaderCubit()),
+      ],
       child: BlocBuilder<BottomNavCubit, int>(
         builder: (context, currentIndex) {
-          final cubit = context.read<BottomNavCubit>();
+          final bottomCubit = context.read<BottomNavCubit>();
+
+          // Define screen titles
+          final screenTitles = ['Home', 'Categories', 'Wishlist', 'Profile'];
+
+          // Define screens
+          final screens = [
+            const HomeScreen(),
+            const CategoriesScreen(),
+            const WishlistScreen(),
+            const ProfileScreen(),
+          ];
 
           return Scaffold(
-            body: IndexedStack(index: currentIndex, children: screens),
+            backgroundColor: Colors.white,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  // Common Header at the top
+                  CommonHeader(
+                    title: screenTitles[currentIndex],
+                    onCartPressed: () {
+                      // Navigate to cart screen
+                      // Navigator.pushNamed(context, '/cart');
+                    },
+                  ),
+
+                  // Current screen content
+                  Expanded(
+                    child: screens[currentIndex],
+                  ),
+                ],
+              ),
+            ),
             bottomNavigationBar: ClipRRect(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(24),
@@ -35,13 +63,12 @@ class MainScreen extends StatelessWidget {
               ),
               child: BottomNavigationBar(
                 currentIndex: currentIndex,
-                onTap: cubit.changeTab,
+                onTap: bottomCubit.changeTab,
                 type: BottomNavigationBarType.fixed,
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 backgroundColor: RColors.primary,
-                elevation: 10,
-                selectedItemColor: Colors.blue,
+                selectedItemColor: RColors.primary,
                 unselectedItemColor: Colors.grey,
                 items: [
                   _buildNavItem(

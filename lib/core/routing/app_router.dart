@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
 import '../../features/auth/presentation/screens/register/register.dart';
 import '../../features/auth/presentation/screens/forget_password/forget_password.dart';
-import '../../navigation/MainScreen.dart';
+import '../../navigation/main_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
