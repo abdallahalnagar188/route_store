@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const LoginHeader(),
+                  const LoginHeader(showTexts: true,),
                   const SizedBox(height: RSizes.spaceBtwSections),
                   LoginForm(cubit: cubit),
                 ],

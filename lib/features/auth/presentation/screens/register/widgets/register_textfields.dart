@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../login/widgets/app_text_form.dart';
+
 class RegisterTextFields extends StatelessWidget {
   final TextEditingController nameController;
   final TextEditingController emailController;
@@ -20,40 +22,52 @@ class RegisterTextFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
+        AppTextFormField(
           controller: nameController,
-          decoration: const InputDecoration(labelText: 'Full Name'),
+          label: 'Full Name',
           validator: (v) => v!.isEmpty ? 'Enter your name' : null,
+          headerText: 'Full Name',
         ),
         const SizedBox(height: 12),
-        TextFormField(
+        AppTextFormField(
           controller: emailController,
-          decoration: const InputDecoration(labelText: 'Email'),
+          label: 'Email',
           validator: (v) => v!.isEmpty
               ? 'Enter your email'
               : (!v.contains('@') ? 'Enter valid email' : null),
+          headerText: 'Email',
         ),
         const SizedBox(height: 12),
-        TextFormField(
+
+        AppTextFormField(
           controller: phoneController,
-          decoration: const InputDecoration(labelText: 'Phone'),
+          label: 'Phone',
           validator: (v) => v!.isEmpty ? 'Enter your phone' : null,
+          headerText: 'Phone',
         ),
         const SizedBox(height: 12),
-        TextFormField(
+
+        AppTextFormField(
+          label: 'Password',
+          headerText: 'Password',
+          validator: (v) => v == null || v.isEmpty ? 'Enter your password' : null,
           controller: passwordController,
           obscureText: true,
-          decoration: const InputDecoration(labelText: 'Password'),
-          validator: (v) =>
-          v!.length < 6 ? 'Password must be at least 6 characters' : null,
         ),
         const SizedBox(height: 12),
-        TextFormField(
+        AppTextFormField(
+          label: 'Re-enter Password',
+          headerText: 'Re-enter Password',
+          validator: (v) {
+            if (v == null || v.isEmpty) {
+              return 'Re-enter your password';
+            } else if (v != passwordController.text) {
+              return 'Passwords do not match';
+            }
+            return null;
+          },
           controller: rePasswordController,
           obscureText: true,
-          decoration: const InputDecoration(labelText: 'Confirm Password'),
-          validator: (v) =>
-          v != passwordController.text ? 'Passwords do not match' : null,
         ),
       ],
     );

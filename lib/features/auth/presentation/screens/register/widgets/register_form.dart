@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:route_store/core/constants/sizes.dart';
 import 'package:route_store/features/auth/presentation/screens/register/widgets/register_button.dart';
 import 'package:route_store/features/auth/presentation/screens/register/widgets/register_textfields.dart';
 import '../../../viewmodels/register/register_cubit.dart';
 
 
 class RegisterForm extends StatelessWidget {
-  const RegisterForm({Key? key}) : super(key: key);
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class RegisterForm extends StatelessWidget {
             passwordController: cubit.passwordController,
             rePasswordController: cubit.rePasswordController,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: RSizes.spaceBtwSections *1.7),
           RegisterButton(onPressed: () => cubit.register()),
         ],
       ),

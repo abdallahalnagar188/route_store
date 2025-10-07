@@ -3,9 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:route_store/features/auth/presentation/screens/register/widgets/register_form.dart';
 
+import '../../../../../core/constants/colors.dart';
+import '../../../../../core/constants/sizes.dart';
 import '../../../../../core/widgets/loaders/app_loader.dart';
 import '../../viewmodels/register/register_cubit.dart';
 import '../login/login.dart';
+import '../login/widgets/login_header.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -44,19 +47,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
               MaterialPageRoute(builder: (_) => const LoginScreen()),
             );
           } else if (state is RegisterFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Error: ${state.message}')),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text('Error: ${state.message}')));
           }
         },
         builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(title: const Text('Create Account')),
-            body: state is RegisterLoading
-                ? const AppLoader()
-                : const SingleChildScrollView(
-              padding: EdgeInsets.all(16),
-              child: RegisterForm(),
+          return SafeArea(
+            child: Scaffold(
+              backgroundColor: RColors.primary,
+              body: state is RegisterLoading
+                  ? const AppLoader()
+                  : const SingleChildScrollView(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          LoginHeader(showTexts: false),
+                          SizedBox(height: RSizes.spaceBtwSections),
+                          RegisterForm(),
+                        ],
+                      ),
+                    ),
             ),
           );
         },
