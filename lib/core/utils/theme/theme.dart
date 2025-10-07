@@ -15,9 +15,10 @@ class MyAppTheme {
   MyAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
+    fontFamily: 'ZalandoSansSemiExpanded',
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: TColors.primary,
+    primaryColor: RColors.primary,
     scaffoldBackgroundColor: Colors.white,
     textTheme: MyAppTextTheme.lightTextTheme,
     elevatedButtonTheme: MyElevatedButtonTheme.lightElevatedButtonTheme,
@@ -29,9 +30,10 @@ class MyAppTheme {
     checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
   );
   static ThemeData darkTheme = ThemeData(
+    fontFamily: 'ZalandoSansSemiExpanded',
     useMaterial3: true,
     brightness: Brightness.dark,
-    primaryColor: TColors.primary,
+    primaryColor: RColors.primary,
     scaffoldBackgroundColor: Colors.black,
     textTheme: MyAppTextTheme.darkTextTheme,
     elevatedButtonTheme: MyElevatedButtonTheme.darkElevatedButtonTheme,

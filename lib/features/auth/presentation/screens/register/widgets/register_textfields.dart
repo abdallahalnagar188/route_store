@@ -44,9 +44,8 @@ class RegisterTextFields extends StatelessWidget {
           controller: passwordController,
           obscureText: true,
           decoration: const InputDecoration(labelText: 'Password'),
-          validator: (v) => v!.length < 6
-              ? 'Password must be at least 6 characters'
-              : null,
+          validator: (v) =>
+          v!.length < 6 ? 'Password must be at least 6 characters' : null,
         ),
         const SizedBox(height: 12),
         TextFormField(

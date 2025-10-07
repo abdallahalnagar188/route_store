@@ -16,8 +16,8 @@ class MyAppTextTheme{
       bodyMedium: TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.normal,color: Colors.black),
       bodySmall: TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black.withOpacity(0.5)),
 
-      labelLarge: TextStyle().copyWith(fontSize: 12,fontWeight: FontWeight.normal,color: Colors.black),
-      labelMedium: TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.normal,color: Colors.black.withOpacity(0.5))
+      labelLarge: TextStyle().copyWith(fontSize: 12,fontWeight: FontWeight.w200,color: Colors.black),
+      labelMedium: TextStyle().copyWith(fontSize: 14,fontWeight: FontWeight.w200,color: Colors.black.withOpacity(0.5))
   );
 
 

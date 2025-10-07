@@ -10,14 +10,14 @@ class MyElevatedButtonTheme{
   static final lightElevatedButtonTheme  = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: TColors.light,
-      backgroundColor: TColors.primary,
-      disabledForegroundColor: TColors.darkGrey,
-      disabledBackgroundColor: TColors.buttonDisabled,
-      side: const BorderSide(color: TColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.textWhite, fontWeight: FontWeight.w600),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
+      foregroundColor: RColors.light,
+      backgroundColor: RColors.primary,
+      disabledForegroundColor: RColors.darkGrey,
+      disabledBackgroundColor: RColors.buttonDisabled,
+      side: const BorderSide(color: RColors.primary),
+      padding: const EdgeInsets.symmetric(vertical: RSizes.buttonHeight),
+      textStyle: const TextStyle(fontSize: 16, color: RColors.textWhite, fontWeight: FontWeight.w600),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RSizes.buttonRadius)),
     ),
   );
 
@@ -25,14 +25,14 @@ class MyElevatedButtonTheme{
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: TColors.light,
-      backgroundColor: TColors.primary,
-      disabledForegroundColor: TColors.darkGrey,
-      disabledBackgroundColor: TColors.darkerGrey,
-      side: const BorderSide(color: TColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.textWhite, fontWeight: FontWeight.w600),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
+      foregroundColor: RColors.light,
+      backgroundColor: RColors.primary,
+      disabledForegroundColor: RColors.darkGrey,
+      disabledBackgroundColor: RColors.darkerGrey,
+      side: const BorderSide(color: RColors.primary),
+      padding: const EdgeInsets.symmetric(vertical: RSizes.buttonHeight),
+      textStyle: const TextStyle(fontSize: 16, color: RColors.textWhite, fontWeight: FontWeight.w600),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(RSizes.buttonRadius)),
     ),
   );
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:route_store/features/auth/presentation/screens/forget_password/forget_password.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
 import '../../features/auth/presentation/screens/register/register.dart';
 import '../../features/home/presentation/screens/home.dart';
@@ -9,6 +10,7 @@ class AppRouter {
     switch (settings.name) {
       case Routes.login:return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.register:return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.forgetPassword:return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.home:return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return MaterialPageRoute(

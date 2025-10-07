@@ -1,5 +1,7 @@
 part of 'login_cubit.dart';
 
+
+
 @immutable
 abstract class LoginState extends Equatable {
   const LoginState();

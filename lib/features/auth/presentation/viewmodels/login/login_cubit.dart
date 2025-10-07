@@ -1,21 +1,30 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/entities/user_entity.dart';
 import '../../../domain/usecase/login_usecase.dart';
-
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginUseCase loginUseCase;
 
+  // Form & Controllers managed here
+  final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   LoginCubit(this.loginUseCase) : super(LoginInitial());
 
-  Future<void> login(String email, String password) async {
+  Future<void> login() async {
+    if (!(formKey.currentState?.validate() ?? false)) return;
+
     emit(LoginLoading());
 
     try {
+      final email = emailController.text.trim();
+      final password = passwordController.text.trim();
+
       final result = await loginUseCase(LoginParams(email: email, password: password));
 
       if (result.isSuccess) {
@@ -28,6 +37,12 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  // Optional helper for resetting state manually (if needed)
   void reset() => emit(LoginInitial());
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    passwordController.dispose();
+    return super.close();
+  }
 }
