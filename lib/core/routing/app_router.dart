@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:route_store/features/auth/presentation/screens/forget_password/forget_password.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
 import '../../features/auth/presentation/screens/register/register.dart';
-import '../../features/home/presentation/screens/home.dart';
+import '../../features/auth/presentation/screens/forget_password/forget_password.dart';
+import '../../navigation/MainScreen.dart';
 import 'routes.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.login:return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.register:return MaterialPageRoute(builder: (_) => const RegisterScreen());
-      case Routes.forgetPassword:return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-      case Routes.home:return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.login:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.register:
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.forgetPassword:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.main:
+        return MaterialPageRoute(builder: (_) => const MainScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
+            body: Center(child: Text('No route defined for ${settings.name}')),
           ),
         );
     }
