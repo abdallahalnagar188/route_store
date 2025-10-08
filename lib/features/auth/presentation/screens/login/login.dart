@@ -6,7 +6,6 @@ import 'package:route_store/core/widgets/loaders/app_loader.dart';
 import 'package:route_store/features/auth/presentation/screens/login/widgets/failure_widget.dart';
 import 'package:route_store/features/auth/presentation/screens/login/widgets/login_form.dart';
 import 'package:route_store/features/auth/presentation/screens/login/widgets/login_header.dart';
-import 'package:route_store/features/home/presentation/screens/home/home.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/routing/routes.dart';

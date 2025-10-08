@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_store/core/constants/colors.dart';
 import 'package:route_store/core/constants/images.dart';
 import '../core/widgets/headers/common_header.dart';
-import '../features/categories/presentation/screens/home/categories.dart';
-import '../features/home/presentation/screens/home/home.dart';
-import '../features/profile/presentation/screens/home/profile.dart';
-import '../features/wishlist/presentation/screens/home/wishlist.dart';
+import '../features/app/presentation/screens/categories/categories.dart';
+import '../features/app/presentation/screens/home/home.dart';
 import '../core/widgets/headers/header_cubit.dart';
+import '../features/app/presentation/screens/profile/profile.dart';
+import '../features/app/presentation/screens/wishlist/wishlist.dart';
 import 'bottom_nav_cubit.dart';
 
 class MainScreen extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../features/app/presentation/screens/subcategories/subcategories.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
 import '../../features/auth/presentation/screens/register/register.dart';
 import '../../features/auth/presentation/screens/forget_password/forget_password.dart';
@@ -8,14 +9,18 @@ import 'routes.dart';
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.login:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.register:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
-      case Routes.forgetPassword:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-      case Routes.main:
-        return MaterialPageRoute(builder: (_) => const MainScreen());
+      case Routes.login:return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.register:return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.forgetPassword:return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+
+      case Routes.main:return MaterialPageRoute(builder: (_) => const MainScreen());
+
+      case Routes.subCategories:
+        final categoryId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => SubcategoriesScreen(categoryId: categoryId),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

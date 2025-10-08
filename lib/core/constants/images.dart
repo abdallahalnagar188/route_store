@@ -11,6 +11,10 @@ class RImages{
   static const String searchIcon ='assets/icons/ic_search.png';
   static const String cartIcon ='assets/icons/ic_cart.png';
 
+  static const String banner1 ='assets/images/banner1.png';
+  static const String banner2 ='assets/images/banner2.png';
+  static const String banner3 ='assets/images/banner3.png';
+
 
 
 }
