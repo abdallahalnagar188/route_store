@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 
-import '../../../../core/error/dio_error_handler.dart';
-import '../models/category_model.dart';
+import '../../../../../core/error/dio_error_handler.dart';
+import '../../models/category_model.dart';
+
 import 'category_remote_data_source.dart';
 
 class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {

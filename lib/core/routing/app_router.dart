@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/app/presentation/screens/subcategories/subcategories.dart';
+import '../../features/app/presentation/viewmodels/subcategory/subcategory_cubit.dart';
 import '../../features/auth/presentation/screens/login/login.dart';
 import '../../features/auth/presentation/screens/register/register.dart';
 import '../../features/auth/presentation/screens/forget_password/forget_password.dart';
 import '../../navigation/main_screen.dart';
+import '../di/di.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -18,9 +21,11 @@ class AppRouter {
       case Routes.subCategories:
         final categoryId = settings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => SubcategoriesScreen(categoryId: categoryId),
+          builder: (_) => BlocProvider(
+            create: (_) => sl<SubcategoryCubit>()..fetchSubcategories(categoryId),
+            child: SubcategoriesScreen(categoryId: categoryId),
+          ),
         );
-
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
