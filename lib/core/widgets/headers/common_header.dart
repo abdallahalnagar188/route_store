@@ -23,7 +23,7 @@ class CommonHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            RImages.logo,
+            RImages.homeLogo,
             height: 28,
             width: 80,
             color: RColors.primary,

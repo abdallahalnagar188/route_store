@@ -8,7 +8,16 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: RColors.accent,
+        child: Center(
+          child: Text(
+            'Profile Screen',
+            style: TextStyle(
+              color: RColors.primary,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }

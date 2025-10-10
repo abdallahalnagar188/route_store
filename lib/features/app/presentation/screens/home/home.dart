@@ -59,10 +59,8 @@ class HomeScreenView extends StatelessWidget {
           children: [
             const SizedBox(height: 16),
 
-            // 🔹 Using the custom HomeSlider widget
             HomeSlider(
               items: sliderItems,
-              height: 200,
               autoPlayInterval: const Duration(seconds: 4),
               onItemTap: (index) {
                 print('Tapped on slider item: $index');
@@ -70,38 +68,6 @@ class HomeScreenView extends StatelessWidget {
             ),
 
             const SizedBox(height: 24),
-
-            // 🔹 Section Header
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Categories',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to all categories
-                    },
-                    child: Text(
-                      'View All',
-                      style: TextStyle(
-                        color: RColors.primary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
             // 🔹 Categories List
             const HomeCategories(),
           ],

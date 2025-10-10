@@ -1,5 +1,6 @@
 class RImages{
   static const String logo ='assets/icons/ic_route.png';
+  static const String homeLogo ='assets/icons/sm_logo.png';
 
   /// Bottom Nav Icons
   static const String homeIcon ='assets/icons/ic_home.png';

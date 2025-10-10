@@ -8,7 +8,16 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: RColors.error,
+        child: Center(
+          child: Text(
+            'Categories Screen',
+            style: TextStyle(
+              color: RColors.primary,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }

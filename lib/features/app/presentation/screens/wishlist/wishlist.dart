@@ -8,7 +8,16 @@ class WishlistScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: RColors.secondary,
+        child: Center(
+          child: Text(
+            'Wishlist Screen',
+            style: TextStyle(
+              color: RColors.primary,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
