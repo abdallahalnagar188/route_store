@@ -1,4 +1,5 @@
 class Routes {
+  static const String splash = '/splash';
   static const String login = '/login';
   static const String register = '/register';
   static const String forgetPassword = '/forgetPassword';
@@ -13,5 +14,7 @@ class Routes {
   static const String productDetails = '/productDetails';
   static const String allProducts = '/allProducts';
   static const String allSubCategories = '/allSubCategories';
+  static const String allCategories = '/allCategories';
+
 
 }

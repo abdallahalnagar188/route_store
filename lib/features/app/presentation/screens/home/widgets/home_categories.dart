@@ -5,6 +5,7 @@ import '../../../../../../core/routing/app_router.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../viewmodels/category/categories_cubit.dart';
 import 'category_item.dart';
+import 'category_item_shimmer.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({super.key});
@@ -49,9 +50,17 @@ class HomeCategories extends StatelessWidget {
         BlocBuilder<CategoriesCubit, CategoriesState>(
           builder: (context, state) {
             if (state is CategoriesLoading) {
-              return const SizedBox(
-                height: 120,
-                child: Center(child: CircularProgressIndicator()),
+              return   SizedBox(
+                height: 250,
+                child: GridView.builder(
+                  scrollDirection: Axis.horizontal,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: 6, // show 6 shimmer placeholders
+                  itemBuilder: (context, index) => const CategoryItemShimmer(),
+                ),
               );
             }
 
@@ -86,8 +95,6 @@ class HomeCategories extends StatelessWidget {
                //   padding: const EdgeInsets.symmetric(horizontal: 16),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,          // 🔹 Two rows
-                    // mainAxisSpacing: 12,        // 🔹 Space between items horizontally
-                    // crossAxisSpacing: 12,       // 🔹 Space between items vertically
                     childAspectRatio: 1,        // 🔹 Adjust for desired item shape
                   ),
                   itemCount: categories.length,

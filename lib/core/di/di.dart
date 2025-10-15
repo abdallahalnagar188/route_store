@@ -4,14 +4,20 @@ import 'package:get_it/get_it.dart';
 import 'package:route_store/features/app/domain/usecase/get_subcategory_usecase.dart';
 import '../../features/app/data/data_sources/category/category_remote_data_source.dart';
 import '../../features/app/data/data_sources/category/category_remote_data_source_impl.dart';
+import '../../features/app/data/data_sources/product/product_remote_data_source.dart';
+import '../../features/app/data/data_sources/product/product_remote_data_source_impl.dart';
 import '../../features/app/data/data_sources/subcategory/subcategory_remote_data_source.dart';
 import '../../features/app/data/data_sources/subcategory/subcategory_remote_data_source_impl.dart';
 import '../../features/app/data/repo_impl/category_repo_impl.dart';
+import '../../features/app/data/repo_impl/product_repo_impl.dart';
 import '../../features/app/data/repo_impl/subcategory_repo_impl.dart';
 import '../../features/app/domain/repo/categories_repo.dart';
+import '../../features/app/domain/repo/product_repo.dart';
 import '../../features/app/domain/repo/subcategory_repo.dart';
 import '../../features/app/domain/usecase/get_categories_usecase.dart';
+import '../../features/app/domain/usecase/get_products_usecase.dart';
 import '../../features/app/presentation/viewmodels/category/categories_cubit.dart';
+import '../../features/app/presentation/viewmodels/product/product_cubit.dart';
 import '../../features/app/presentation/viewmodels/subcategory/subcategory_cubit.dart';
 import '../../features/auth/data/data_sources/auth_remote_data_store.dart';
 import '../../features/auth/data/repo_impl/auth_repo_impl.dart';
@@ -32,23 +38,27 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton<AuthRemoteDataSource>(() => AuthRemoteDataSourceImpl(sl()),);
   sl.registerLazySingleton<CategoriesRemoteDataSource>(() => CategoriesRemoteDataSourceImpl(sl()),);
   sl.registerLazySingleton<SubcategoryRemoteDataSource>(() => SubcategoriesRemoteDataSourceImpl(sl()),);
+  sl.registerLazySingleton<ProductRemoteDataSource>(() => ProductRemoteDataSourceImpl(sl()),);
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()));
   sl.registerLazySingleton<CategoriesRepo>(() => CategoriesRepoImpl(sl()));
   sl.registerLazySingleton<SubcategoryRepo>(() => SubcategoryRepoImpl(sl()));
+  sl.registerLazySingleton<ProductRepo>(() => ProductRepoImpl(sl()));
 
   // UseCases
   sl.registerLazySingleton(() => LoginUseCase(sl()));
   sl.registerLazySingleton(() => RegisterUseCase(sl()));
   sl.registerLazySingleton<GetCategoriesUseCase>(() => GetCategoriesUseCase(sl()),);
   sl.registerLazySingleton<GetSubCategoryUseCase>(() => GetSubCategoryUseCase(sl()),);
+  sl.registerLazySingleton<GetAllProductsUseCase>(() => GetAllProductsUseCase(sl()),);
 
   // Cubits
   sl.registerFactory(() => LoginCubit(sl()));
   sl.registerFactory(() => RegisterCubit(sl()));
   sl.registerFactory(() => CategoriesCubit(getCategoriesUseCase: sl()));
   sl.registerFactory(() => SubcategoryCubit(sl()));
+  sl.registerFactory(() => ProductCubit(sl()));
 
 
 }

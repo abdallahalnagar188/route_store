@@ -26,4 +26,20 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
       throw Exception('Unexpected error: $e');
     }
   }
+
+  @override
+  Future<CategoryResponseModel> getPagingCategories(int page) async{
+    try{
+      final response = await dio.get('/categories?page=$page');
+      if(response.statusCode == 200 && response.data != null){
+        return CategoryResponseModel.fromJson(response.data);
+      }else{
+        throw Exception('Failed to load categories');
+      }
+    }on DioException catch(e){
+      throw Exception(DioErrorHandler.getErrorMessage(e));
+    }catch(e){
+      throw Exception('Unexpected error: $e');
+    }
+  }
 }

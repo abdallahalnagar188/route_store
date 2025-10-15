@@ -16,4 +16,15 @@ class CategoriesRepoImpl implements CategoriesRepo {
       rethrow;
     }
   }
+
+  @override
+  Future<List<CategoryEntity>> getPagingCategories(int page)async {
+    try{
+      final response = await remoteDataSource.getPagingCategories(page);
+      return response.data;
+    }catch(e){
+      rethrow;
+    }
+  }
+
 }

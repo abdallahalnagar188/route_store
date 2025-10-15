@@ -7,6 +7,7 @@ import 'package:route_store/features/auth/presentation/screens/login/widgets/fai
 import 'package:route_store/features/auth/presentation/screens/login/widgets/login_form.dart';
 import 'package:route_store/features/auth/presentation/screens/login/widgets/login_header.dart';
 import '../../../../../core/constants/colors.dart';
+import '../../../../../core/local/cash_helper.dart';
 import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../viewmodels/login/login_cubit.dart';
@@ -27,6 +28,7 @@ class LoginScreen extends StatelessWidget {
             current is LoginSuccess || current is LoginFailure,
             listener: (context, state) {
               if (state is LoginSuccess) {
+                 print("Login Success ${CacheHelper.getLogin()}");
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Welcome, ${state.user.name}')),
                 );
